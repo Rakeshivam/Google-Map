@@ -2,6 +2,7 @@ let markers = [];
 let infos = [];
 let map;
 let isSatellite = false;
+let myLocationMarker = null;
 
 $("#btn1").click(() => {
   markers.forEach((m) => m.setMap(null));
@@ -18,6 +19,7 @@ function initMap() {
     zoom: 7,
     center: { lat: 28.6448, lng: 77.2167 },
     mapTypeId: "roadmap",
+    gestureHandling: "greedy",
   });
 
   addDefaultMarker();
@@ -32,7 +34,10 @@ function addDefaultMarker() {
     map,
   });
 
-  const info = new google.maps.InfoWindow({ content: "New Delhi" });
+  const info = new google.maps.InfoWindow({
+    content: "New Delhi",
+  });
+
   info.open(map, marker);
 
   markers.push(marker);
@@ -74,11 +79,31 @@ function mapClickWeather() {
 
 function locateMe() {
   $("#locateMe").click(() => {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported");
+      return;
+    }
+
     navigator.geolocation.getCurrentPosition((pos) => {
-      map.panTo({
+      const location = {
         lat: pos.coords.latitude,
         lng: pos.coords.longitude,
+      };
+
+      if (myLocationMarker) {
+        myLocationMarker.setMap(null);
+      }
+
+      myLocationMarker = new google.maps.Marker({
+        position: location,
+        map,
+        title: "My Location",
+        animation: google.maps.Animation.DROP,
       });
+
+      markers.push(myLocationMarker);
+
+      map.panTo(location);
       map.setZoom(14);
     });
   });
