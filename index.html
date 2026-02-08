@@ -1,45 +1,48 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="">
-
-<head>
-    <meta charset="UTF-8">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
     <title>Google Map</title>
-    <link href="GOOGLE-MAPS.css" rel="stylesheet">
+    <link rel="stylesheet" href="GOOGLE-MAPS.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link
-        href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Bree+Serif|Jacques+Francois+Shadow|Libre+Baskerville"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-</head>
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <header class="header">
+      <h1>GOOGLE MAP</h1>
+    </header>
 
-
-    <div id="box">
-        <div id="heading">
-            <h1 style="text-align: center;font-family: 'Jacques Francois Shadow', cursive;font-size:40px;">GOOGLE MAP
-            </h1>
-        </div>
-        <div id="map"></div>
-        <div id="instruct">
-            <h1 style="">INSTRUCTIONS:</h1>
-            <h2 style="font-family: 'Libre Baskerville', serif;">1)Click once to add a pointer & see the weather of the
-                place<br>
-                <br>2)Click twice to zoom-in along with it
-                <br><br>3)Click on pointer to view its weather
-                <br><br><button id="btn2" style="font-family: 'Fjalla One', sans-serif; ">DELETE ALL WINDOWS</button>
-                <br><br><button id="btn1" style="font-family: 'Fjalla One', sans-serif; ">DELETE ALL POINTERS</button>
-            </h2>
-        </div>
+    <div class="map-controls">
+      <button id="locateMe">📍 My Location</button>
+      <button id="toggleMap">🛰 Satellite</button>
     </div>
 
-</body>
+    <main class="container">
+      <div id="map"></div>
 
+      <aside id="instruct">
+        <h2>Instructions</h2>
+        <p>1️⃣ Click on map to add marker & see weather</p>
+        <p>2️⃣ Click marker again to reopen weather</p>
 
-<script src="jQuery.js"></script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFyrk6QMg7gqU5dY5Ao_xDb5qTd3FLi4g&callback=initMap&libraries=places">
-    </script>
-<script src="GOOGLE-MAPS.js"></script>
+        <button id="btn2">DELETE ALL WINDOWS</button>
+        <button id="btn1">DELETE ALL POINTERS</button>
+      </aside>
+    </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFyrk6QMg7gqU5dY5Ao_xDb5qTd3FLi4g&callback=initMap&libraries=places"
+    ></script>
+
+    <script src="GOOGLE-MAPS.js"></script>
+  </body>
 </html>

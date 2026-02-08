@@ -1,48 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f1f3f4;
+}
+
+.header {
+  background: linear-gradient(135deg, #1a73e8, #1557b0);
+  padding: 18px;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.header h1 {
+  color: white;
+  letter-spacing: 4px;
+}
+
+.map-controls {
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.map-controls button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  font-weight: 500;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 20px auto;
+  display: flex;
+  gap: 20px;
+  padding: 0 16px;
+}
+
 #map {
-    height: 500px;
-    width: 58%;
-    border: 2px solid black;
-    border-radius: 10% 10% 10% 10%;
+  flex: 3;
+  height: 560px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 #instruct {
-    height: 500px;
-    width: 38%;
-    border: 2px solid black;
-    text-align: center;
-    border-radius: 10% 10% 10% 10%;
-    background-color: navajowhite;
-    font-size: 14px;
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-#heading {
-    width: 100%;
-    height: 50px;
+#instruct h2 {
+  margin-bottom: 12px;
+}
+
+#instruct p {
+  margin-bottom: 10px;
+}
+
+#instruct button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#btn2 {
+  background: #1a73e8;
+  color: white;
+}
+
+#btn1 {
+  background: #d93025;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  #map {
+    height: 380px;
+  }
+
+  .map-controls {
+    top: 90px;
+    right: 10px;
+  }
+}
+
+/* MOBILE RESPONSIVE */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #box {
-    height: 700px;
-    width: 100%;
-    margin: 0 auto;
-    justify-content: center;
-    border-radius: 10% 10% 10% 10%;
-    box-shadow: inset 1px 1px 18px 5px black;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-@media screen and (max-width:700px) {
-    #instruct {
-        width: 80%;
-    }
+#map {
+  width: 100%;
+  height: 60vh;
+  min-height: 300px;
+}
 
-    #map {
-        width: 80%;
-    }
+#instruct {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
 
-    #box {
-        height: 1200px;
-    }
+@media (max-width: 768px) {
+  #map {
+    height: 55vh;
+    min-height: 280px;
+  }
 
+  #heading h1 {
+    font-size: 26px;
+  }
+
+  #instruct h1 {
+    font-size: 20px;
+  }
+
+  #instruct h2 {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* DESKTOP LAYOUT */
+
+@media (min-width: 992px) {
+  #box {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  #map {
+    flex: 3;
+    height: calc(100vh - 160px);
+    min-height: 520px;
+    border-radius: 18px;
+  }
+
+  #instruct {
+    flex: 1.2;
+    height: calc(100vh - 160px);
+    overflow-y: auto;
+    border-radius: 18px;
+  }
 }
