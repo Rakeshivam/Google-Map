@@ -23,23 +23,57 @@ body {
 }
 
 .map-controls {
-  position: absolute;
-  top: 110px;
-  right: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 10;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .map-controls button {
-  padding: 10px 14px;
-  border-radius: 10px;
+  padding: 12px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   border: none;
+  border-radius: 30px;
   cursor: pointer;
-  background: white;
-  font-weight: 500;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+  background: #ffffff;
+  color: #333;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.location-btn {
+  background: linear-gradient(135deg, #4285f4, #1a73e8);
+  color: white;
+}
+
+.location-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.satellite-btn {
+  background: linear-gradient(135deg, #34a853, #0f9d58);
+  color: white;
+}
+
+.satellite-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .container {
